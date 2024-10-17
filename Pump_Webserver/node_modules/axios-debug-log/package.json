@@ -1,0 +1,49 @@
+{
+  "name": "axios-debug-log",
+  "version": "0.7.0",
+  "description": "Axios interceptor of logging requests & responses by debug.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "lint": "standard",
+    "typing": "tsc",
+    "test": "mocha",
+    "coverage": "nyc mocha",
+    "postcoverage": "nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gerhut/axios-debug-log.git"
+  },
+  "keywords": [
+    "axios",
+    "debug",
+    "logging"
+  ],
+  "author": "George Cheng <Gerhut@GMail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Gerhut/axios-debug-log/issues"
+  },
+  "homepage": "https://github.com/Gerhut/axios-debug-log#readme",
+  "dependencies": {
+    "@types/debug": "^4.0.0",
+    "debug": "^4.0.0"
+  },
+  "devDependencies": {
+    "axios": ">=0.17.0",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "should": "^13.1.3",
+    "should-sinon": "0.0.6",
+    "sinon": "^9.0.0",
+    "standard": "^14.0.0",
+    "typescript": "^3.5.1"
+  },
+  "peerDependencies": {
+    "axios": ">=0.17.0"
+  }
+}

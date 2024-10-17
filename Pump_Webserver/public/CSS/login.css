@@ -1,0 +1,138 @@
+/*Div login*/
+#login_welcome {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/*Font*/
+#modal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Full-width input fields with rounded corners */
+#inputuser[type=text], #inputpass[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+#inputuser:hover, #inputpass:hover {
+    border-color: #04AA6D;
+}
+
+/* Set a style for all buttons with subtle shadows */
+#bttlogin1, #bttcancle {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    opacity: 0.9;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#bttcancle {
+    width: auto;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, #FF5F6D 0%, #FFC371 100%);
+}
+
+/* Center the image and position the close button */
+#img_container {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+#img_avatar {
+  width: 30%;
+  border-radius: 50%;
+  border: 2px solid #04AA6D;
+}
+
+#log_container, #login_container {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Full-screen background with transparency */
+#id01 {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.85); /* Black with transparency */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+#modal-content1 {
+  background-color: #ffffff;
+  margin: 5% auto 15% auto;
+  border-radius: 10px;
+  width: 30%;
+  height: 610px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+#closebtt {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#closebtt:hover,
+#closebtt:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Animation for zoom-in effect */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0);}
+  to {-webkit-transform: scale(1);}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 600px) {
+  #modal-content1 {
+    width: 90%;
+    height: auto;
+  }
+}

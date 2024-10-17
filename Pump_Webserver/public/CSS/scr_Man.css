@@ -1,0 +1,737 @@
+
+/*Màn hình Home*/
+#Screen_Man {
+    position: absolute;
+    left: 215px; top: 120px;
+    width: 1100px; height: 630px;
+    background: linear-gradient(180deg, rgb(184, 177, 166) 0%, rgb(146, 137, 128) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/*Bơm 1*/
+#sym_scrMan_Bom1 {
+    position: absolute;
+    left: 130px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 2*/
+#sym_scrMan_Bom2 {
+    position: absolute;
+    left: 300px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 3*/
+#sym_scrMan_Bom3 {
+    position: absolute;
+    left: 470px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 4*/
+#sym_scrMan_Bom4 {
+    position: absolute;
+    left: 640px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 5*/
+#sym_scrMan_Bom5 {
+    position: absolute;
+    left: 810px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 6*/
+#sym_scrMan_Bom6 {
+    position: absolute;
+    left: 130px; top: 342px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 7*/
+#sym_scrMan_Bom7 {
+    position: absolute;
+    left: 300px; top: 342px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 8*/
+#sym_scrMan_Bom8 {
+    position: absolute;
+    left: 470px; top: 342px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 9*/
+#sym_scrMan_Bom9 {
+    position: absolute;
+    left: 640px; top: 342px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 10*/
+#sym_scrMan_Bom10 {
+    position: absolute;
+    left: 810px; top: 342px;
+    width: 121px; height: 66px;
+    
+}
+
+/*Đèn báo 1*/
+#sym_scrMan_Denbao1 {
+    position: absolute;
+    left: 222px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 2*/
+#sym_scrMan_Denbao2 {
+    position: absolute;
+    left: 385px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 3*/
+#sym_scrMan_Denbao3 {
+    position: absolute;
+    left: 562px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 4*/
+#sym_scrMan_Denbao4 {
+    position: absolute;
+    left: 726px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 5*/
+#sym_scrMan_Denbao5 {
+    position: absolute;
+    left: 900px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 6*/
+#sym_scrMan_Denbao6 {
+    position: absolute;
+    left: 222px; top: 305px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 7*/
+#sym_scrMan_Denbao7 {
+    position: absolute;
+    left: 385px; top: 305px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 8*/
+#sym_scrMan_Denbao8 {
+    position: absolute;
+    left: 562px; top: 305px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 9*/
+#sym_scrMan_Denbao9 {
+    position: absolute;
+    left: 726px; top: 305px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 10*/
+#sym_scrMan_Denbao10 {
+    position: absolute;
+    left: 900px; top: 305px;
+    width: 30px; height: 30px;
+    
+}
+/* Nút nhấn - Styles for buttons */
+#btt_Start1,#btt_Start2,#btt_Start3,#btt_Start4,#btt_Start5,#btt_Start6,#btt_Start7,#btt_Start8,#btt_Start9,#btt_Start10,
+#btt_Stop1,#btt_Stop2,#btt_Stop3,#btt_Stop4,#btt_Stop5,#btt_Stop6,#btt_Stop7,#btt_Stop8,#btt_Stop9,#btt_Stop10,#btt_scrMan_Edit,#btt_scrMan_Save,
+#tbx_set_tocdo1,#tbx_set_tocdo2,#tbx_set_tocdo3,#tbx_set_tocdo4,#tbx_set_tocdo5,#tbx_set_tocdo6,#tbx_set_tocdo7,#tbx_set_tocdo8,#tbx_set_tocdo9,#tbx_set_tocdo10{
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 82px;
+    height: 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/*Code css cho nút nhấn start1*/
+#btt_Start1 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 130px; top: 204px;
+}
+/*Code css cho nút nhấn start2*/
+#btt_Start2 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 300px; top: 204px;
+}
+/*Code css cho nút nhấn start3*/
+#btt_Start3 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 470px; top: 204px;
+}
+/*Code css cho nút nhấn start4*/
+#btt_Start4 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 640px; top: 204px;
+}
+/*Code css cho nút nhấn start5*/
+#btt_Start5 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 810px; top: 204px;
+}
+/*Code css cho nút nhấn start6*/
+#btt_Start6 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 130px; top: 421px;
+}
+/*Code css cho nút nhấn start7*/
+#btt_Start7 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 300px; top: 421px;
+}
+/*Code css cho nút nhấn start8*/
+#btt_Start8 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 470px; top: 421px;
+}
+/*Code css cho nút nhấn start9*/
+#btt_Start9 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 640px; top: 421px;
+}
+/*Code css cho nút nhấn start10*/
+#btt_Start10 {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 810px; top: 421px;
+}
+
+/*Code css cho nút nhấn stop1*/
+#btt_Stop1 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 202px; top: 204px;
+}
+/*Code css cho nút nhấn stop2*/
+#btt_Stop2 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 372px; top: 204px;
+}
+/*Code css cho nút nhấn stop3*/
+#btt_Stop3 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 542px; top: 204px;
+}
+/*Code css cho nút nhấn stop4*/
+#btt_Stop4 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 712px; top: 204px;
+}
+/*Code css cho nút nhấn stop5*/
+#btt_Stop5 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 882px; top: 204px;
+}
+/*Code css cho nút nhấn stop6*/
+#btt_Stop6 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 202px; top: 421px;
+}
+/*Code css cho nút nhấn stop7*/
+#btt_Stop7 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 372px; top: 421px;
+}
+/*Code css cho nút nhấn stop8*/
+#btt_Stop8 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 542px; top: 421px;
+}
+/*Code css cho nút nhấn stop9*/
+#btt_Stop9 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 712px; top: 421px;
+}
+/*Code css cho nút nhấn stop1*/
+#btt_Stop10 {
+    border: none;
+    background-color: rgb(148, 0, 7);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 60px; height: 24px;
+    left: 882px; top: 421px;
+}
+
+
+/*Code css cho nút nhấn sửa dữ liệu*/
+#btt_scrMan_Edit {
+    border: none;
+    background-color: rgb(255, 17, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 50px; height: 20px;
+    left: 20px; top: 30px;
+}
+
+/*Code css cho nút nhấn lưu dữ liệu*/
+#btt_scrMan_Save {
+    border: none;
+    background-color: rgb(0, 255, 85);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 50px; height: 20px;
+    left: 20px; top: 30px;
+}
+
+/*tốc độ bơm 1*/
+#tbx_set_tocdo1 {
+    position: absolute;
+    left: 130px; top: 230px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 2*/
+#tbx_set_tocdo2 {
+    position: absolute;
+    left: 300px; top: 230px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 3*/
+#tbx_set_tocdo3 {
+    position: absolute;
+    left: 470px; top: 230px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 4*/
+#tbx_set_tocdo4 {
+    position: absolute;
+    left: 640px; top: 230px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 5*/
+#tbx_set_tocdo5 {
+    position: absolute;
+    left: 810px; top: 230px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 6*/
+#tbx_set_tocdo6 {
+    position: absolute;
+    left: 130px; top: 446px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 7*/
+#tbx_set_tocdo7 {
+    position: absolute;
+    left: 300px; top: 446px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 8*/
+#tbx_set_tocdo8 {
+    position: absolute;
+    left: 470px; top: 446px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 9*/
+#tbx_set_tocdo9 {
+    position: absolute;
+    left: 640px; top: 446px;
+    width: 81px; height: 27px;
+    
+}
+/*tốc độ bơm 10*/
+#tbx_set_tocdo10 {
+    position: absolute;
+    left: 810px; top: 446px;
+    width: 81px; height: 27px;
+    
+}
+
+
+/* CHỮ Bơm    */
+
+#bomman1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 110px;
+    font-size: 1em;
+}
+#bomman2 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 110px;
+    font-size: 1em;
+}
+#bomman3 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 110px;
+    font-size: 1em;
+}
+#bomman4 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 110px;
+    font-size: 1em;
+}
+#bomman5 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 110px;
+    font-size: 1em;
+}
+#bomman6 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 325px;
+    font-size: 1em;
+}
+#bomman7 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 325px;
+    font-size: 1em;
+}
+#bomman8 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 325px;
+    font-size: 1em;
+}
+#bomman9 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 325px;
+    font-size: 1em;
+}
+#bomman10 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 325px;
+    font-size: 1em;
+}
+
+/* CHỮ hz    */
+
+#bommann1 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 221px; top: 215px;
+    font-size: 1.5em;
+}
+#bommann2 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 391px; top: 215px;
+    font-size: 1.5em;
+}
+#bommann3 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 561px; top: 215px;
+    font-size: 1.5em;
+}
+#bommann4 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 731px; top: 215px;
+    font-size: 1.5em;
+}
+#bommann5 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 901px; top: 215px;
+    font-size: 1.5em;
+}
+#bommann6 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 221px; top: 433px;
+    font-size: 1.5em;
+}
+#bommann7 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 391px; top: 433px;
+    font-size: 1.5em;
+}
+#bommann8 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 561px; top: 433px;
+    font-size: 1.5em;
+}
+#bommann9 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 731px; top: 433px;
+    font-size: 1.5em;
+}
+#bommann10 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 901px; top: 433px;
+    font-size: 1.5em;
+}
+
+
+#bommann11 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 320px; 
+    top: 2px;
+    font-size: 2em;
+    animation: bounce 1s infinite alternate, colorChange 3s infinite alternate;
+    font-weight: bold; /* Đậm chữ để dễ chú ý hơn */
+}
+
+/* Hiệu ứng thay đổi màu sắc */
+@keyframes colorChange {
+    0% {
+        color: rgb(32, 129, 13); /* Màu xanh lá */
+    }
+    50% {
+        color: rgb(255, 0, 0); /* Màu đỏ */
+    }
+    100% {
+        color: rgb(7, 10, 235); /* Màu xanh dương */
+    }
+}
+

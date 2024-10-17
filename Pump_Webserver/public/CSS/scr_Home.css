@@ -1,0 +1,314 @@
+
+/*Màn hình Home*/
+#Screen_Home {
+    position: absolute;
+    left: 215px; top: 120px;
+    width: 1100px; height: 630px;
+    background: linear-gradient(180deg, rgb(184, 177, 166) 0%, rgb(146, 137, 128) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/*Đèn 1*/
+#sym_scrHome_Den1 {
+    position: absolute;
+    left: 55px; top: 105px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 2*/
+#sym_scrHome_Den2 {
+    position: absolute;
+    left: 130px; top: 105px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 3*/
+#sym_scrHome_Den3 {
+    position: absolute;
+    left: 205px; top: 105px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 4*/
+#sym_scrHome_Den4 {
+    position: absolute;
+    left: 280px; top: 105px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 5*/
+#sym_scrHome_Den5 {
+    position: absolute;
+    left: 355px; top: 105px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 6*/
+#sym_scrHome_Den6 {
+    position: absolute;
+    left: 55px; top: 190px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 7*/
+#sym_scrHome_Den7 {
+    position: absolute;
+    left: 130px; top: 190px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 8*/
+#sym_scrHome_Den8 {
+    position: absolute;
+    left: 205px; top: 190px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 9*/
+#sym_scrHome_Den9 {
+    position: absolute;
+    left: 280px; top: 190px;
+    width: 51px; height: 51px;
+    
+}
+/*Đèn 10*/
+#sym_scrHome_Den10 {
+    position: absolute;
+    left: 355px; top: 190px;
+    width: 51px; height: 51px;
+    
+}
+
+/*Đèn Áp suất*/
+#sym_scrHome_ApSuat {
+    position: absolute;
+    left: 780px; top: 315px;
+    width: 71px; height: 71px;
+    
+}
+
+/*Đèn Cảnh Báo*/
+#sym_scrHome_Canhbao {
+    position: absolute;
+    left: 910px; top: 315px;
+    width: 71px; height: 71px;
+    
+}
+
+/* Nút nhấn - Styles for buttons */
+#btt_Auto, #btt_Man, #btt_StopALL, #btt_Reset,#tbx_act_tongthoigian {
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 82px;
+    height: 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Code css cho nút nhấn auto*/
+#btt_Auto {
+    border: none;
+    background-color: rgb(229, 255, 0);                 
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 102px; height: 52px;
+    left: 444px; top: 476px;
+}
+
+/*Code css cho nút nhấn man*/
+#btt_Man {
+    border: none;
+    background-color: rgb(47, 0, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 102px; height: 52px;
+    left: 334px; top: 476px;
+}
+/*Code css cho nút nhấn stop all*/
+#btt_StopALL {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 102px; height: 52px;
+    left: 552px; top: 476px;
+}
+/*Code css cho nút nhấn reset*/
+#btt_Reset {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 102px; height: 52px;
+    left: 660px; top: 476px;
+}
+
+
+/*IO fleld */
+#tbx_act_tongthoigian {
+    position: absolute;
+    left: 743px; top: 87px;
+    width: 159px; height: 69px;
+    
+}
+
+/* CHỮ Bơm    */
+
+#bomhome1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 58px; top: 150px;
+    font-size: 1em;
+}
+#bomhome2 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 133px; top: 150px;
+    font-size: 1em;
+}
+#bomhome3 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 208px; top: 150px;
+    font-size: 1em;
+}
+#bomhome4 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 283px; top: 150px;
+    font-size: 1em;
+}
+#bomhome5 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 358px; top: 150px;
+    font-size: 1em;
+}
+#bomhome6 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 58px; top: 235px;
+    font-size: 1em;
+}
+#bomhome7 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 133px; top: 235px;
+    font-size: 1em;
+}
+#bomhome8 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 208px; top: 235px;
+    font-size: 1em;
+}
+#bomhome9 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 283px; top: 235px;
+    font-size: 1em;
+}
+#bomhome10 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 358px; top: 235px;
+    font-size: 1em;
+}
+#bomhome11 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 703px; top: 155px;
+    font-size: 1em;
+}
+#bomhome12 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 750px; top: 385px;
+    font-size: 1em;
+}
+#bomhome13 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 900px; top: 385px;
+    font-size: 1em;
+}
+
+
+#bomhome14 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 420px; 
+    top: 2px;
+    font-size: 2em;
+    animation: bounce 1s infinite alternate, colorChange 3s infinite alternate;
+    font-weight: bold; /* Đậm chữ để dễ chú ý hơn */
+}
+
+/* Hiệu ứng thay đổi màu sắc */
+@keyframes colorChange {
+    0% {
+        color: rgb(32, 129, 13); /* Màu xanh lá */
+    }
+    50% {
+        color: rgb(255, 0, 0); /* Màu đỏ */
+    }
+    100% {
+        color: rgb(7, 10, 235); /* Màu xanh dương */
+    }
+}

@@ -1,0 +1,198 @@
+
+/*Màn hình Alarm*/
+#Screen_Alarm {
+    position: absolute;
+    left: 215px; top: 120px;
+    width: 1100px; height: 630px;
+    background: linear-gradient(180deg, rgb(184, 177, 166) 0%, rgb(146, 137, 128) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+
+/*//////////////Hiển thị dữ liệu bảng cảnh báo - Start/////////////////*/
+#div_table_Alarm {
+
+    position: absolute;
+    left: 0;
+    top: 230px;
+    width: 1000px;
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Đường viền nhẹ */
+    border-radius: 10px; /* Bo góc container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng cho container */
+}
+
+/* Table Alarm */
+#table_Alarm {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(230, 147, 143); /* Softened red */
+    color: white;
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;
+}
+
+#table_Alarm tr {
+    cursor: pointer;
+}
+
+#table_Alarm tr:hover {
+    background-color: rgba(190, 58, 51, 0.9); /* Slightly darker on hover */
+}
+
+#table_Alarm thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(7, 10, 235); /* Keep the same blue header */
+    color: white;
+    text-transform: uppercase; /* Make header text uppercase */
+    letter-spacing: 1px; /* Add some spacing to header text */
+    font-weight: bold;
+}
+
+#table_Alarm {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table_Alarm th, 
+#table_Alarm td {
+    padding: 12px 20px; /* Increase padding for a cleaner look */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle row borders */
+}
+
+#table_Alarm th {
+    background: rgb(7, 10, 235); /* Keep the original background color */
+    color: white;
+    border-bottom: 2px solid white; /* Add a distinct bottom border to the header */
+}
+
+
+/*//////////////TRƯỜNG TÌM KIẾM CẢNH BÁO/////////////////*/
+
+/* Lable tìm kiếm từ */
+#lb_AL_Search_Start {
+    color: rgb(26, 24, 24);
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    left: 900px; 
+    top: 55px;
+    font-family: Arial, sans-serif; /* Thêm font-family hiện đại */
+}
+
+/* Chọn ngày tháng bắt đầu */
+#dtpk_AL_Search_Start {
+    text-align: left;
+    position: absolute;
+    left: 900px; 
+    top: 75px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Đường viền nhẹ nhàng */
+    border-radius: 5px; /* Bo góc */
+    background-color: #f9f9f9; /* Màu nền nhẹ */
+    font-family: Arial, sans-serif;
+}
+
+/* Lable tìm kiếm đến */
+#lb_AL_Search_End {
+    color: rgb(26, 24, 24);
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    left: 900px; 
+    top: 105px;
+    font-family: Arial, sans-serif;
+}
+
+/* Chọn ngày tháng kết thúc */
+#dtpk_AL_Search_End {
+    text-align: left;
+    position: absolute;
+    left: 900px; 
+    top: 125px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* Nút tìm kiếm */
+#btt_AL_Search {
+    border: none;
+    background-color: DodgerBlue;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 96px; 
+    height: 30px;
+    left: 900px; 
+    top: 160px;
+    border-radius: 5px; /* Bo góc cho nút */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Thêm shadow để nổi bật */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+#btt_AL_Search:hover {
+    background-color: RoyalBlue; /* Màu khác khi hover */
+}
+
+/* nút xuất ex*/
+.btn1 {
+    border: none;
+    background-color: rgb(32, 129, 13);
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 96px; 
+    height: 30px;
+    left: 1005px; 
+    top: 160px;
+    border-radius: 5px; /* Bo góc cho nút */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Thêm shadow để nổi bật */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn1:hover {
+    background-color: rgb(27, 192, 82); /* Màu khác khi hover */
+}
+
+
+#alarmm1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; 
+    top: 2px;
+    font-size: 2em;
+    animation: bounce 1s infinite alternate, colorChange 3s infinite alternate;
+    font-weight: bold; /* Đậm chữ để dễ chú ý hơn */
+}
+
+/* Hiệu ứng thay đổi màu sắc */
+@keyframes colorChange {
+    0% {
+        color: rgb(32, 129, 13); /* Màu xanh lá */
+    }
+    50% {
+        color: rgb(255, 0, 0); /* Màu đỏ */
+    }
+    100% {
+        color: rgb(7, 10, 235); /* Màu xanh dương */
+    }
+}
+

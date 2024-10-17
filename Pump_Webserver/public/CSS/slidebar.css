@@ -1,0 +1,114 @@
+/* Slide bar chính */
+#slidebar {
+    position: absolute;
+    left: 5px; top: 11px;
+    width: 198px; height: 740px;
+    background: linear-gradient(180deg, rgba(107, 72, 40, 1) 0%, rgba(79, 53, 28, 1) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/* General button styling */
+#btt_Home, #btt_Mansb, #btt_Autosb, #btt_Time, #btt_Alarm,#bttLogin,#bttLogout,#btt_Active {
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút Màn Home */
+#btt_Home {
+    background: linear-gradient(90deg, rgba(233, 15, 149, 1) 0%, rgba(255, 87, 220, 1) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 20px;
+}
+#btt_Home:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(173, 100, 158) 0%, rgb(175, 75, 137) 100%);
+}
+
+/* Nút Màn Man */
+#btt_Mansb {
+    background: linear-gradient(90deg, rgba(11, 45, 240, 1) 0%, rgba(79, 140, 255, 1) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 70px;
+}
+#btt_Mansb:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgba(79, 140, 255, 1) 0%, rgb(85, 97, 163) 100%);
+}
+
+/* Nút Màn Auto */
+#btt_Autosb {
+    background: linear-gradient(90deg, rgba(139, 161, 17, 1) 0%, rgba(202, 215, 113, 1) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 120px;
+}
+#btt_Autosb:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(84, 90, 47) 0%, rgb(90, 97, 54) 100%);
+}
+
+/* Nút Màn Time */
+#btt_Time {
+    background: linear-gradient(90deg, rgba(11, 167, 240, 1) 0%, rgba(91, 206, 255, 1) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 170px;
+}
+#btt_Time:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(11, 59, 80) 0%, rgba(11, 167, 240, 1) 100%);
+}
+
+/* Nút Màn Alarm */
+#btt_Alarm {
+    background: linear-gradient(90deg, rgb(247, 6, 6) 0%, rgb(211, 51, 2) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 220px;
+}
+#btt_Alarm:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(223, 160, 77) 0%, rgb(207, 155, 42) 100%);
+}
+/* Nút Màn Active */
+#btt_Active {
+    background: linear-gradient(90deg, rgba(17, 161, 94, 1) 0%, rgba(119, 208, 163, 1) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 270px;
+}
+#btt_Active:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(8, 78, 43) 0%, rgba(17, 161, 94, 1) 100%);
+}
+
+
+
+/* Nút Màn đăng nhập */
+#bttLogin {
+    background: linear-gradient(90deg, rgb(84, 17, 161) 0%, rgb(227, 16, 235) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 630px;
+}
+#bttLogin:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(49, 8, 73) 0%, rgb(179, 12, 142) 100%);
+}
+
+/* Nút Màn đăng xuất */
+#bttLogout {
+    background: linear-gradient(90deg, rgb(230, 9, 9) 0%, rgb(235, 16, 16) 100%);
+    color: rgb(255, 255, 255);
+    left: 22px; top: 680px;
+}
+#bttLogout:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, rgb(124, 68, 68) 0%, rgb(112, 77, 77) 100%);
+}

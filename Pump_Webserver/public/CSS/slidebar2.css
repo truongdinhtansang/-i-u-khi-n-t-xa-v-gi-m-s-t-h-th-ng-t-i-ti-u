@@ -1,0 +1,32 @@
+/* Slide bar chính */
+#slidebar2 {
+    position: absolute;
+    left: 215px; top: 11px;
+    width: 1100px; height: 100px;
+    background: linear-gradient(180deg, rgb(211, 202, 193) 0%, rgb(156, 150, 145) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+
+/* CHỮ PBL 5*/
+
+#title {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    left: 150px; top: 13px;
+    font-size: 1.5em;
+}
+
+/* CHỮ HƯỚNG DẪN    */
+
+#title1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    left: 587px; top: 40px;
+    font-size: 1.5em;
+}

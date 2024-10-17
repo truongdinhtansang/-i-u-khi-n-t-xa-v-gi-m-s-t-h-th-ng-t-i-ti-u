@@ -1,0 +1,636 @@
+<html>
+    <!-- Phần Header -->
+
+    <head>
+        <!-- ////////////// GỌI CÁC CSS //////////////  -->
+        <link rel="stylesheet" href= "CSS/login.css">
+        <link rel="stylesheet" href= "CSS/slidebar.css">
+        <link rel="stylesheet" href= "CSS/scr_Home.css">
+        <link rel="stylesheet" href= "CSS/scr_Man.css">
+        <link rel="stylesheet" href= "CSS/scr_Auto.css">
+        <link rel="stylesheet" href= "CSS/scr_Time.css">
+        <link rel="stylesheet" href= "CSS/scr_Alarm.css">
+        <link rel="stylesheet" href= "CSS/scr_Active.css">
+        <link rel="stylesheet" href= "CSS/slidebar2.css">
+       
+        <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+        <title>Scada hệ thống giám sát trên internet</title>
+        <script src = "socket.io/socket.io.js"></script>
+        <script src = "js/FC1_Common.js"></script>
+        <script src = "js/FC2_scr_Man.js"></script>
+        <script src = "js/FC3_scr_Auto.js"></script>
+        <script src = "js/FC4_UserManagement.js"></script>
+        <script src = "js/FC5_Alarm.js"></script>
+        <script src = "js/FC6_Active.js"></script>
+        <script src = "js/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+        
+        <script>
+            var socket = io("https://myapp.loca.lt/") // IP tĩnh (hoặc IP động, localhost)
+        </script>
+        <!-- ////////////// CHƯƠNG TRÌNH ĐĂNG NHẬP HỆ THỐNG //////////////  -->
+<div id="div_login">
+    <div id="id01" class="modal">
+        <form id = "modal-content1" class="modal-content animate">
+        <div id = "img_container" class="imgcontainer">
+            <span id = "closebtt" onclick="document.getElementById('id01').style.display='none'; logout();" class="close" title="Close Modal">×</span>
+            <img decoding="async" id = "img_avatar" src="images/user.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div id = "log_container" class="container">
+            <label for="uname"><b>Username</b></label>
+            <input id = "inputuser" type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input id = "inputpass" type="password" placeholder="Enter Password" name="psw" required>
+
+            <button id = "bttlogin1" type="button" onclick="login();">Login</button>
+            <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div id = "login_container" class="container" style="background-color:#f1f1f1">
+            <button id = "bttcancle" type="button" onclick="document.getElementById('id01').style.display='none'; logout();" class="cancelbtn">Cancel</button>
+            <span id = "psw" class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+        </form>
+    </div>
+</div>
+    </head>
+
+
+
+    <body>
+        <!-- ////////////// Code cho slidebar////////////// -->
+            <div id = "slidebar">
+                <!--Nút chọn màn hình chính-->
+                <button id="btt_Home" onclick="
+                    fn_ScreenChange('Screen_Home','Screen_Man','Screen_Time','Screen_Alarm','Screen_Auto','Screen_Active');
+                    
+                ">HOME</button>
+                <!--Nút chọn màn hình 1-->
+                <button id="btt_Mansb" onclick="
+                    fn_ScreenChange('Screen_Man','Screen_Home','Screen_Time','Screen_Alarm','Screen_Auto','Screen_Active');
+                ">MAN</button>
+                <!--Nút chọn màn hình 3-->
+                <button id="btt_Autosb" onclick="
+                    fn_ScreenChange('Screen_Auto','Screen_Home','Screen_Time','Screen_Alarm','Screen_Man','Screen_Active');
+                ">AUTO</button>
+                <!--Nút chọn màn hình 2-->
+                <button id="btt_Time" onclick="
+                    fn_ScreenChange('Screen_Time','Screen_Home','Screen_Man','Screen_Alarm','Screen_Auto','Screen_Active');
+                ">TIME</button>
+                <!--Nút chọn màn hình alarm-->
+                <button id="btt_Alarm" onclick="
+                fn_ScreenChange('Screen_Alarm','Screen_Home','Screen_Man','Screen_Time','Screen_Auto','Screen_Active');
+                fn_Alarm_Show();
+                ">ALARM</button>
+                <!--Nút chọn màn hình active-->
+                <button id="btt_Active" onclick="
+                fn_ScreenChange('Screen_Active','Screen_Home','Screen_Man','Screen_Time','Screen_Auto','Screen_Alarm');
+                fn_Active_Show();
+
+                ">ACTIVE</button>
+                <!--Nút đăng nhập/đăng xuất-->
+                <button id="bttLogin" class="btn" onclick="login();
+                window.location.reload();
+                ">ĐĂNG NHẬP</button>
+                <button id="bttLogout" class="btn" onclick="logout();
+                ">ĐĂNG XUẤT</button>
+                            </div>
+                            <!-- ////////////// Code cho slidebar2////////////// -->
+            <div id = "slidebar2">
+                <!--CHỮ CHO MÀN HÌNH-->
+                <h1 id="title">PBL5 : HỆ THỐNG ĐIỀU KHIỂN VÀ GIÁM SÁT TỪ XA TRẠM TƯỚI TIÊU</h1>
+                <h1 id="title1">HƯỚNG DẪN : T.S NGÔ ĐÌNH THANH</h1>
+                <img src="images/logo.PNG" style="width: 100px; height: 99px;">
+
+            </div>
+        <!-- //////////////Code cho màn hình Home////////////// -->
+            <div id = "Screen_Home">
+                
+                <!-- //////////////Hình nền////////////// -->
+              
+               <!-- Tạo Đèn 1 -->
+                <img id = "sym_scrHome_Den1" ><script> fn_SymbolStatus("sym_scrHome_Den1", "Den1", "kichbientan1chaymay1") </script>
+                <!-- Tạo Đèn 2 -->
+                <img id = "sym_scrHome_Den2" ><script> fn_SymbolStatus("sym_scrHome_Den2", "Den1", "kichbientan2chaymay2") </script>
+                <!-- Tạo Đèn 3 -->
+                <img id = "sym_scrHome_Den3" ><script> fn_SymbolStatus("sym_scrHome_Den3", "Den1", "kichbientan3chaymay3") </script>
+                <!-- Tạo Đèn 4 -->
+                <img id = "sym_scrHome_Den4" ><script> fn_SymbolStatus("sym_scrHome_Den4", "Den1", "kichbientan4chaymay4") </script>
+                <!-- Tạo Đèn 5 -->
+                <img id = "sym_scrHome_Den5" ><script> fn_SymbolStatus("sym_scrHome_Den5", "Den1", "kichbientan5chaymay5") </script>
+                <!-- Tạo Đèn 6 -->
+                <img id = "sym_scrHome_Den6" ><script> fn_SymbolStatus("sym_scrHome_Den6", "Den1", "kichbientan6chaymay6") </script>
+                <!-- Tạo Đèn 7 -->
+                <img id = "sym_scrHome_Den7" ><script> fn_SymbolStatus("sym_scrHome_Den7", "Den1", "kichbientan7chaymay7") </script>
+                <!-- Tạo Đèn 8 -->
+                <img id = "sym_scrHome_Den8" ><script> fn_SymbolStatus("sym_scrHome_Den8", "Den1", "kichbientan8chaymay8") </script>
+                <!-- Tạo Đèn 9 -->
+                <img id = "sym_scrHome_Den9" ><script> fn_SymbolStatus("sym_scrHome_Den9", "Den1", "kichbientan9chaymay9") </script>
+                <!-- Tạo Đèn 10 -->
+                <img id = "sym_scrHome_Den10" ><script> fn_SymbolStatus("sym_scrHome_Den10", "Den1", "kichbientan10chaymay10") </script>
+                <!-- Tạo Đèn Áp suất -->
+                <img id = "sym_scrHome_ApSuat" ><script> fn_SymbolStatus("sym_scrHome_ApSuat", "Den2", "denbaoapsuat") </script>
+                <!-- Tạo Đèn cảnh báo -->
+                <img id = "sym_scrHome_Canhbao" ><script> fn_SymbolStatus("sym_scrHome_Canhbao", "Den3", "denbaoquanhiettong") </script>
+                
+                <!-- //////////////Nút nhấn Auto////////////// -->
+                <button id="btt_Auto" onclick= "socket.emit('cmd_Auto', true);">AUTO</button>
+                <script>fn_btt_Color('chedoauto', 'btt_Auto', 'rgb(224, 250, 6)', 'gray')</script>
+                
+                <!-- //////////////Nút nhấn Man////////////// -->
+                <button id="btt_Man" onclick= "socket.emit('cmd_Man', true);">MAN</button>
+                <script>fn_btt_Color('chedobantay', 'btt_Man', 'rgb(6, 87, 250)', 'gray')</script>
+
+                <!-- //////////////Nút nhấn stop ALL////////////// -->
+                <button id="btt_StopALL" onclick= "socket.emit('cmd_StopALL', true);">STOPALL</button>
+                <script>fn_btt_Color('StopALL', 'btt_StopALL', 'rgb(250, 24, 6)', 'gray')</script>
+                <!-- //////////////Nút nhấn Reset////////////// -->
+                <button id="btt_Reset" onclick= "socket.emit('cmd_Reset', true);">RESET</button>
+                <script>fn_btt_Color('Reset', 'btt_Reset', 'rgb(250, 24, 6)', 'gray')</script>
+                <!-- //////////////Hiển thị dữ liệu IO Field////////////// -->
+                 <!-- Giá trị tổng thời gian -->
+                 <input id="tbx_act_tongthoigian" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("tongthoigiantinhtheogio", "tbx_act_tongthoigian", 4)</script>
+
+                 <h1 id="bomhome1">BƠM 1</h1>
+                 <h1 id="bomhome2">BƠM 2</h1>
+                 <h1 id="bomhome3">BƠM 3</h1>
+                 <h1 id="bomhome4">BƠM 4</h1>
+                 <h1 id="bomhome5">BƠM 5</h1>
+                 <h1 id="bomhome6">BƠM 6</h1>
+                 <h1 id="bomhome7">BƠM 7</h1>
+                 <h1 id="bomhome8">BƠM 8</h1>
+                 <h1 id="bomhome9">BƠM 9</h1>
+                 <h1 id="bomhome10">BƠM 10</h1>
+                 <h1 id="bomhome11">TỔNG THỜI GIAN HOẠT ĐỘNG (H)</h1>
+                 <h1 id="bomhome12">ĐÈN BÁO ÁP SUẤT</h1>
+                 <h1 id="bomhome13">ĐÈN CẢNH BÁO</h1>
+                 <h1 id="bomhome14">MÀN HÌNH HOME</h1>
+            </div>
+        <!-- //////////////Code cho màn hình Man////////////// -->
+            <div id = "Screen_Man">
+                 <!-- //////////////Hình nền////////////// -->
+                
+                <!-- Tạo Bơm 1 -->
+                <img id = "sym_scrMan_Bom1" ><script> fn_SymbolStatus("sym_scrMan_Bom1", "Bom1", "kichbientan1chaymay1") </script>
+                <!-- Tạo Bơm 2 -->
+                <img id = "sym_scrMan_Bom2" ><script> fn_SymbolStatus("sym_scrMan_Bom2", "Bom1", "kichbientan2chaymay2") </script>
+                <!-- Tạo Bơm 3 -->
+                <img id = "sym_scrMan_Bom3" ><script> fn_SymbolStatus("sym_scrMan_Bom3", "Bom1", "kichbientan3chaymay3") </script>
+                <!-- Tạo Bơm 4 -->
+                <img id = "sym_scrMan_Bom4" ><script> fn_SymbolStatus("sym_scrMan_Bom4", "Bom1", "kichbientan4chaymay4") </script>
+                <!-- Tạo Bơm 5 -->
+                <img id = "sym_scrMan_Bom5" ><script> fn_SymbolStatus("sym_scrMan_Bom5", "Bom1", "kichbientan5chaymay5") </script>
+                <!-- Tạo Bơm 6 -->
+                <img id = "sym_scrMan_Bom6" ><script> fn_SymbolStatus("sym_scrMan_Bom6", "Bom1", "kichbientan6chaymay6") </script>
+                <!-- Tạo Bơm 7 -->
+                <img id = "sym_scrMan_Bom7" ><script> fn_SymbolStatus("sym_scrMan_Bom7", "Bom1", "kichbientan7chaymay7") </script>
+                <!-- Tạo Bơm 8 -->
+                <img id = "sym_scrMan_Bom8" ><script> fn_SymbolStatus("sym_scrMan_Bom8", "Bom1", "kichbientan8chaymay8") </script>
+                <!-- Tạo Bơm 9 -->
+                <img id = "sym_scrMan_Bom9" ><script> fn_SymbolStatus("sym_scrMan_Bom9", "Bom1", "kichbientan9chaymay9") </script>
+                <!-- Tạo Bơm 10 -->
+                <img id = "sym_scrMan_Bom10" ><script> fn_SymbolStatus("sym_scrMan_Bom10", "Bom1", "kichbientan10chaymay10") </script>
+                <!-- Tạo Đèn báo 1 -->
+                <img id = "sym_scrMan_Denbao1" ><script> fn_SymbolStatus("sym_scrMan_Denbao1", "Den3", "Alam1_bit8_mb1quanhiet") </script>
+                <!-- Tạo Đèn báo 2 -->
+                <img id = "sym_scrMan_Denbao2" ><script> fn_SymbolStatus("sym_scrMan_Denbao2", "Den3", "Alam1_bit9_mb2quanhiet") </script>
+                <!-- Tạo Đèn báo 3 -->
+                <img id = "sym_scrMan_Denbao3" ><script> fn_SymbolStatus("sym_scrMan_Denbao3", "Den3", "Alam1_bit10_mb3quanhiet") </script>
+                <!-- Tạo Đèn báo 4 -->
+                <img id = "sym_scrMan_Denbao4" ><script> fn_SymbolStatus("sym_scrMan_Denbao4", "Den3", "Alam1_bit11_mb4quanhiet") </script>
+                <!-- Tạo Đèn báo 5 -->
+                <img id = "sym_scrMan_Denbao5" ><script> fn_SymbolStatus("sym_scrMan_Denbao5", "Den3", "Alam1_bit12_mb5quanhiet") </script>
+                <!-- Tạo Đèn báo 6 -->
+                <img id = "sym_scrMan_Denbao6" ><script> fn_SymbolStatus("sym_scrMan_Denbao6", "Den3", "Alam1_bit13_mb6quanhiet") </script>
+                <!-- Tạo Đèn báo 7 -->
+                <img id = "sym_scrMan_Denbao7" ><script> fn_SymbolStatus("sym_scrMan_Denbao7", "Den3", "Alam1_bit14_mb7quanhiet") </script>
+                <!-- Tạo Đèn báo 8 -->
+                <img id = "sym_scrMan_Denbao8" ><script> fn_SymbolStatus("sym_scrMan_Denbao8", "Den3", "Alam1_bit15_mb8quanhiet") </script>
+                <!-- Tạo Đèn báo 9 -->
+                <img id = "sym_scrMan_Denbao9" ><script> fn_SymbolStatus("sym_scrMan_Denbao9", "Den3", "Alam1_bit0_mb9quanhiet") </script>
+                <!-- Tạo Đèn 10 -->
+                <img id = "sym_scrMan_Denbao10" ><script> fn_SymbolStatus("sym_scrMan_Denbao10", "Den3", "Alam1_bit1_mb10quanhiet") </script>
+                
+                <!-- //////////////Nút nhấn Start1////////////// -->
+                <button id="btt_Start1" onclick= "socket.emit('cmd_Start1', true);">START1</button>
+                <script>fn_btt_Color('kichbientan1chaymay1', 'btt_Start1', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start2////////////// -->
+                <button id="btt_Start2" onclick= "socket.emit('cmd_Start2', true);">START2</button>
+                <script>fn_btt_Color('kichbientan2chaymay2', 'btt_Start2', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start3////////////// -->
+                <button id="btt_Start3" onclick= "socket.emit('cmd_Start3', true);">START3</button>
+                <script>fn_btt_Color('kichbientan3chaymay3', 'btt_Start3', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start4////////////// -->
+                <button id="btt_Start4" onclick= "socket.emit('cmd_Start4', true);">START4</button>
+                <script>fn_btt_Color('kichbientan4chaymay4', 'btt_Start4', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start5////////////// -->
+                <button id="btt_Start5" onclick= "socket.emit('cmd_Start5', true);">START5</button>
+                <script>fn_btt_Color('kichbientan5chaymay5', 'btt_Start5', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start6////////////// -->
+                <button id="btt_Start6" onclick= "socket.emit('cmd_Start6', true);">START6</button>
+                <script>fn_btt_Color('kichbientan6chaymay6', 'btt_Start6', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start7////////////// -->
+                <button id="btt_Start7" onclick= "socket.emit('cmd_Start7', true);">START7</button>
+                <script>fn_btt_Color('kichbientan7chaymay7', 'btt_Start7', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start8////////////// -->
+                <button id="btt_Start8" onclick= "socket.emit('cmd_Start8', true);">START8</button>
+                <script>fn_btt_Color('kichbientan8chaymay8', 'btt_Start8', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start9////////////// -->
+                <button id="btt_Start9" onclick= "socket.emit('cmd_Start9', true);">START9</button>
+                <script>fn_btt_Color('kichbientan9chaymay9', 'btt_Start9', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Start10////////////// -->
+                <button id="btt_Start10" onclick= "socket.emit('cmd_Start10', true);">START10</button>
+                <script>fn_btt_Color('kichbientan10chaymay10', 'btt_Start10', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop1////////////// -->
+                <button id="btt_Stop1" onclick= "socket.emit('cmd_Stop1', true);">STOP1</button>
+                <script>fn_btt_Color('Stop1', 'btt_Stop1', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop2////////////// -->
+                <button id="btt_Stop2" onclick= "socket.emit('cmd_Stop2', true);">STOP2</button>
+                <script>fn_btt_Color('Stop2', 'btt_Stop2', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop3////////////// -->
+                <button id="btt_Stop3" onclick= "socket.emit('cmd_Stop3', true);">STOP3</button>
+                <script>fn_btt_Color('Stop3', 'btt_Stop3', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop4////////////// -->
+                <button id="btt_Stop4" onclick= "socket.emit('cmd_Stop4', true);">STOP4</button>
+                <script>fn_btt_Color('Stop4', 'btt_Stop4', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop5////////////// -->
+                <button id="btt_Stop5" onclick= "socket.emit('cmd_Stop5', true);">STOP5</button>
+                <script>fn_btt_Color('Stop5', 'btt_Stop5', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop6////////////// -->
+                <button id="btt_Stop6" onclick= "socket.emit('cmd_Stop6', true);">STOP6</button>
+                <script>fn_btt_Color('Stop6', 'btt_Stop6', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop7////////////// -->
+                <button id="btt_Stop7" onclick= "socket.emit('cmd_Stop7', true);">STOP7</button>
+                <script>fn_btt_Color('Stop7', 'btt_Stop7', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop8////////////// -->
+                <button id="btt_Stop8" onclick= "socket.emit('cmd_Stop8', true);">STOP8</button>
+                <script>fn_btt_Color('Stop8', 'btt_Stop8', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop9////////////// -->
+                <button id="btt_Stop9" onclick= "socket.emit('cmd_Stop9', true);">STOP9</button>
+                <script>fn_btt_Color('Stop9', 'btt_Stop9', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn Stop10////////////// -->
+                <button id="btt_Stop10" onclick= "socket.emit('cmd_Stop10', true);">STOP10</button>
+                <script>fn_btt_Color('Stop10', 'btt_Stop10', 'rgb(249, 5, 5)', 'gray')</script>
+                <!-- //////////////Sửa và lưu thông số cài đặt////////////// -->
+                 <!--Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa-->
+                <button id="btt_scrMan_Save" onclick= "fn_Man_SaveBtt('btt_scrMan_Save','btt_scrMan_Edit')">LƯU</button>
+                <button id="btt_scrMan_Edit" onclick= "fn_Man_EditBtt('btt_scrMan_Save','btt_scrMan_Edit')">SỬA</button>
+                 <!-- Cài đặt tốc độ bơm 1 -->
+                 <input id="tbx_set_tocdo1" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso1", "tbx_set_tocdo1", 4)</script>
+                 <!-- Cài đặt tốc độ bơm 2 -->
+                 <input id="tbx_set_tocdo2" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso2", "tbx_set_tocdo2", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 3 -->
+                 <input id="tbx_set_tocdo3" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso3", "tbx_set_tocdo3", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 4 -->
+                 <input id="tbx_set_tocdo4" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso4", "tbx_set_tocdo4", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 5 -->
+                 <input id="tbx_set_tocdo5" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso5", "tbx_set_tocdo5", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 6 -->
+                 <input id="tbx_set_tocdo6" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso6", "tbx_set_tocdo6", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 7 -->
+                 <input id="tbx_set_tocdo7" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso7", "tbx_set_tocdo7", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 8 -->
+                 <input id="tbx_set_tocdo8" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso8", "tbx_set_tocdo8", 4)</script>   
+                 <!-- Cài đặt tốc độ bơm 9 -->
+                 <input id="tbx_set_tocdo9" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso9", "tbx_set_tocdo9", 4)</script> 
+                 <!-- Cài đặt tốc độ bơm 10 -->
+                 <input id="tbx_set_tocdo10" disabled="disabled" type="text" />
+                 <script>fn_Man_IOField_IO("SP_tanso10", "tbx_set_tocdo10", 4)</script> 
+                 <h1 id="bomman1">BƠM 1</h1>
+                 <h1 id="bomman2">BƠM 2</h1>
+                 <h1 id="bomman3">BƠM 3</h1>
+                 <h1 id="bomman4">BƠM 4</h1>
+                 <h1 id="bomman5">BƠM 5</h1>
+                 <h1 id="bomman6">BƠM 6</h1>
+                 <h1 id="bomman7">BƠM 7</h1>
+                 <h1 id="bomman8">BƠM 8</h1>
+                 <h1 id="bomman9">BƠM 9</h1>
+                 <h1 id="bomman10">BƠM 10</h1>
+                 <h1 id="bommann1">Hz</h1>
+                 <h1 id="bommann2">Hz</h1> 
+                 <h1 id="bommann3">Hz</h1> 
+                 <h1 id="bommann4">Hz</h1> 
+                 <h1 id="bommann5">Hz</h1> 
+                 <h1 id="bommann6">Hz</h1> 
+                 <h1 id="bommann7">Hz</h1> 
+                 <h1 id="bommann8">Hz</h1>         
+                 <h1 id="bommann9">Hz</h1> 
+                 <h1 id="bommann10">Hz</h1> 
+                 <h1 id="bommann11">MÀN HÌNH CHẾ ĐỘ MAN</h1> 
+            
+            
+            </div>
+             
+            
+            
+            <!-- //////////////Code cho màn hình Auto////////////// -->
+             <div id = "Screen_Auto">
+                <!-- //////////////Hình nền////////////// -->
+               
+               <!-- Tạo Bơm 1 -->
+               <img id = "sym_scrAuto_Bom1" ><script> fn_SymbolStatus("sym_scrAuto_Bom1", "Bom1", "kichbientan1chaymay1") </script>
+               <!-- Tạo Bơm 2 -->
+               <img id = "sym_scrAuto_Bom2" ><script> fn_SymbolStatus("sym_scrAuto_Bom2", "Bom1", "kichbientan2chaymay2") </script>
+               <!-- Tạo Bơm 3 -->
+               <img id = "sym_scrAuto_Bom3" ><script> fn_SymbolStatus("sym_scrAuto_Bom3", "Bom1", "kichbientan3chaymay3") </script>
+               <!-- Tạo Bơm 4 -->
+               <img id = "sym_scrAuto_Bom4" ><script> fn_SymbolStatus("sym_scrAuto_Bom4", "Bom1", "kichbientan4chaymay4") </script>
+               <!-- Tạo Bơm 5 -->
+               <img id = "sym_scrAuto_Bom5" ><script> fn_SymbolStatus("sym_scrAuto_Bom5", "Bom1", "kichbientan5chaymay5") </script>
+               <!-- Tạo Bơm 6 -->
+               <img id = "sym_scrAuto_Bom6" ><script> fn_SymbolStatus("sym_scrAuto_Bom6", "Bom1", "kichbientan6chaymay6") </script>
+               <!-- Tạo Bơm 7 -->
+               <img id = "sym_scrAuto_Bom7" ><script> fn_SymbolStatus("sym_scrAuto_Bom7", "Bom1", "kichbientan7chaymay7") </script>
+               <!-- Tạo Bơm 8 -->
+               <img id = "sym_scrAuto_Bom8" ><script> fn_SymbolStatus("sym_scrAuto_Bom8", "Bom1", "kichbientan8chaymay8") </script>
+               <!-- Tạo Bơm 9 -->
+               <img id = "sym_scrAuto_Bom9" ><script> fn_SymbolStatus("sym_scrAuto_Bom9", "Bom1", "kichbientan9chaymay9") </script>
+               <!-- Tạo Bơm 10 -->
+               <img id = "sym_scrAuto_Bom10" ><script> fn_SymbolStatus("sym_scrAuto_Bom10", "Bom1", "kichbientan10chaymay10") </script>
+               <!-- Tạo Đèn báo 1 -->
+               <img id = "sym_scrAuto_Denbao1" ><script> fn_SymbolStatus("sym_scrAuto_Denbao1", "Den3", "Alam1_bit8_mb1quanhiet") </script>
+               <!-- Tạo Đèn báo 2 -->
+               <img id = "sym_scrAuto_Denbao2" ><script> fn_SymbolStatus("sym_scrAuto_Denbao2", "Den3", "Alam1_bit9_mb2quanhiet") </script>
+               <!-- Tạo Đèn báo 3 -->
+               <img id = "sym_scrAuto_Denbao3" ><script> fn_SymbolStatus("sym_scrAuto_Denbao3", "Den3", "Alam1_bit10_mb3quanhiet") </script>
+               <!-- Tạo Đèn báo 4 -->
+               <img id = "sym_scrAuto_Denbao4" ><script> fn_SymbolStatus("sym_scrAuto_Denbao4", "Den3", "Alam1_bit11_mb4quanhiet") </script>
+               <!-- Tạo Đèn báo 5 -->
+               <img id = "sym_scrAuto_Denbao5" ><script> fn_SymbolStatus("sym_scrAuto_Denbao5", "Den3", "Alam1_bit12_mb5quanhiet") </script>
+               <!-- Tạo Đèn báo 6 -->
+               <img id = "sym_scrAuto_Denbao6" ><script> fn_SymbolStatus("sym_scrAuto_Denbao6", "Den3", "Alam1_bit13_mb6quanhiet") </script>
+               <!-- Tạo Đèn báo 7 -->
+               <img id = "sym_scrAuto_Denbao7" ><script> fn_SymbolStatus("sym_scrAuto_Denbao7", "Den3", "Alam1_bit14_mb7quanhiet") </script>
+               <!-- Tạo Đèn báo 8 -->
+               <img id = "sym_scrAuto_Denbao8" ><script> fn_SymbolStatus("sym_scrAuto_Denbao8", "Den3", "Alam1_bit15_mb8quanhiet") </script>
+               <!-- Tạo Đèn báo 9 -->
+               <img id = "sym_scrAuto_Denbao9" ><script> fn_SymbolStatus("sym_scrAuto_Denbao9", "Den3", "Alam1_bit0_mb9quanhiet") </script>
+               <!-- Tạo Đèn 10 -->
+               <img id = "sym_scrAuto_Denbao10" ><script> fn_SymbolStatus("sym_scrAuto_Denbao10", "Den3", "Alam1_bit1_mb10quanhiet") </script>
+               <!-- Tạo Đèn báo mức nước đầy -->
+               <img id = "sym_scrAuto_Denbaonuoc" ><script> fn_SymbolStatus("sym_scrAuto_Denbaonuoc", "Den4", "denbaomucnuocday") </script>
+               
+               
+                <!-- //////////////Nút nhấn Start Auto////////////// -->
+                <button id="btt_StartAuto" onclick= "socket.emit('cmd_StartAuto', true);">START</button>
+                <script>fn_btt_Color('kichbientan1chaymay1', 'btt_StartAuto', 'rgb(23, 249, 5)', 'gray')</script>
+                <!-- //////////////Nút nhấn stop ALL////////////// -->
+                <button id="btt_StopALLauto" onclick= "socket.emit('cmd_StopALLauto', true);">STOPALL</button>
+                <script>fn_btt_Color('StopALL', 'btt_StopALLauto', 'rgb(250, 24, 6)', 'gray')</script>
+                <!-- //////////////Nút nhấn Reset auto////////////// -->
+                <button id="btt_ResetAuto" onclick= "socket.emit('cmd_ResetAuto', true);">RESET</button>
+                <script>fn_btt_Color('Reset', 'btt_ResetAuto', 'rgb(250, 24, 6)', 'gray')</script>
+        
+
+                <!-- //////////////Hiển thị dữ liệu IO Field////////////// -->
+                 <!-- Giá trị lượng nước từ bơm 1 đến 10 của chế độ auto -->
+                 <input id="tbx_act_luongnuoc1" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom1", "tbx_act_luongnuoc1", 4)</script>
+
+                 <input id="tbx_act_luongnuoc2" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom2", "tbx_act_luongnuoc2", 4)</script>
+
+                 <input id="tbx_act_luongnuoc3" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom3", "tbx_act_luongnuoc3", 4)</script>
+
+                 <input id="tbx_act_luongnuoc4" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom4", "tbx_act_luongnuoc4", 4)</script>
+
+                 <input id="tbx_act_luongnuoc5" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom5", "tbx_act_luongnuoc5", 4)</script>
+
+                 <input id="tbx_act_luongnuoc6" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom6", "tbx_act_luongnuoc6", 4)</script>
+
+                 <input id="tbx_act_luongnuoc7" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom7", "tbx_act_luongnuoc7", 4)</script>
+
+                 <input id="tbx_act_luongnuoc8" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom8", "tbx_act_luongnuoc8", 4)</script>
+
+                 <input id="tbx_act_luongnuoc9" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom9", "tbx_act_luongnuoc9", 4)</script>
+
+                 <input id="tbx_act_luongnuoc10" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("luongnuocbom10", "tbx_act_luongnuoc10", 4)</script>
+
+                 <input id="tbx_act_tongluongnuoc" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("tongluongnuocbom", "tbx_act_tongluongnuoc", 4)</script>
+
+                 <h1 id="bom1">BƠM 1</h1>
+                 <h1 id="bom2">BƠM 2</h1>
+                 <h1 id="bom3">BƠM 3</h1>
+                 <h1 id="bom4">BƠM 4</h1>
+                 <h1 id="bom5">BƠM 5</h1>
+                 <h1 id="bom6">BƠM 6</h1>
+                 <h1 id="bom7">BƠM 7</h1>
+                 <h1 id="bom8">BƠM 8</h1>
+                 <h1 id="bom9">BƠM 9</h1>
+                 <h1 id="bom10">BƠM 10</h1>
+                 <h1 id="bomm1">m3</h1>
+                 <h1 id="bomm2">m3</h1>
+                 <h1 id="bomm3">m3</h1>
+                 <h1 id="bomm4">m3</h1>
+                 <h1 id="bomm5">m3</h1>
+                 <h1 id="bomm6">m3</h1>
+                 <h1 id="bomm7">m3</h1>
+                 <h1 id="bomm8">m3</h1>
+                 <h1 id="bomm9">m3</h1>
+                 <h1 id="bomm10">m3</h1>
+                 <h1 id="bomm11">LƯỢNG NƯỚC TỔNG</h1>
+                 <h1 id="bomm12">LƯỢNG NƯỚC YÊU CẦU</h1>
+                 <h1 id="bomm13">MÀN HÌNH CHẾ ĐỘ AUTO</h1>
+                 
+
+                 
+                <!--Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa-->
+                <button id="btt_Auto_Save" onclick= "fn_Auto_SaveBtt('btt_Auto_Save','btt_Auto_Edit')">LƯU</button>
+                <button id="btt_Auto_Edit" onclick= "fn_Auto_EditBtt('btt_Auto_Save','btt_Auto_Edit')">SỬA</button>
+            <!-- ///////// GỌI CÁC IOFIELD HIỂN THỊ/////////////// -->
+                
+                <!--Tag dạng Số thực-->
+                <label>:</label>
+                <input id="tbx_Auto_Real" disabled="disabled" type="text" />
+                <script>fn_Auto_IOField_IO("mucnuocyeucau", "tbx_Auto_Real", 2);</script>
+                <br /><br />
+                
+                
+           </div>
+
+
+        <!-- //////////////Code cho màn hình Time////////////// -->
+            <div id = "Screen_Time">
+                 <!-- //////////////Hình nền////////////// -->
+                 <!-- //////////////Hiển thị dữ liệu IO Field////////////// -->
+                 <!-- Giá trị thời gian của bơm 1 đến 10 -->
+                 <input id="tbx_act_thoigian1" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom1chaygio", "tbx_act_thoigian1", 4)</script>
+
+                 <input id="tbx_act_thoigian2" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom2chaygio", "tbx_act_thoigian2", 4)</script>
+
+                 <input id="tbx_act_thoigian3" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom3chaygio", "tbx_act_thoigian3", 4)</script>
+
+                 <input id="tbx_act_thoigian4" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom4chaygio", "tbx_act_thoigian4", 4)</script>
+
+                 <input id="tbx_act_thoigian5" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom5chaygio", "tbx_act_thoigian5", 4)</script>
+
+                 <input id="tbx_act_thoigian6" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom6chaygio", "tbx_act_thoigian6", 4)</script>
+
+                 <input id="tbx_act_thoigian7" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom7chaygio", "tbx_act_thoigian7", 4)</script>
+
+                 <input id="tbx_act_thoigian8" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom8chaygio", "tbx_act_thoigian8", 4)</script>
+
+                 <input id="tbx_act_thoigian9" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom9chaygio", "tbx_act_thoigian9", 4)</script>
+
+                 <input id="tbx_act_thoigian10" disabled="disabled" type="text" />
+                 <script>fn_IOFieldDataShow("thoigianbom10chaygio", "tbx_act_thoigian10", 4)</script>
+
+                 <h1 id="time1">THỜI GIAN BƠM 1 (H)</h1>
+                 <h1 id="time2">THỜI GIAN BƠM 2 (H)</h1>
+                 <h1 id="time3">THỜI GIAN BƠM 3 (H)</h1>
+                 <h1 id="time4">THỜI GIAN BƠM 4 (H)</h1>
+                 <h1 id="time5">THỜI GIAN BƠM 5 (H)</h1>
+                 <h1 id="time6">THỜI GIAN BƠM 6 (H)</h1>
+                 <h1 id="time7">THỜI GIAN BƠM 7 (H)</h1>
+                 <h1 id="time8">THỜI GIAN BƠM 8 (H)</h1>
+                 <h1 id="time9">THỜI GIAN BƠM 9 (H)</h1>
+                 <h1 id="time10">THỜI GIAN BƠM 10 (H)</h1>
+                 <h1 id="time11">MÀN HÌNH HIỂN THỊ THỜI GIAN</h1>
+
+
+                
+            </div>
+         <!-- //////////////Code cho màn hình Alarm///////////// -->
+         <div id = "Screen_Alarm">
+             <!-- //////////////Hình nền////////////// -->
+
+
+           <!--Table Cảnh báo Alarm-->
+           <div id = "div_table_Alarm">
+            <table id="table_Alarm" >
+                <thead>
+                <tr>
+                    <th>Thời gian</th>
+                    <th>ID cảnh báo</th>
+                    <th>Trạng thái</th>
+                    <th>Nội dung cảnh báo</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+       
+        <!--Date time piker-->
+        <label id="lb_AL_Search_Start">Từ:</label>
+        <input id="dtpk_AL_Search_Start" type="datetime-local">
+        <label id="lb_AL_Search_End">Đến:</label>
+        <input id="dtpk_AL_Search_End" type="datetime-local">
+        
+        
+        <!--Nút tìm kiếm 
+        <button id="btt_AL_Search" class="btn" onclick="fn_Alarm_By_Time();"></i> TÌM KIẾM</button>
+                </div  -->
+        
+        <!--Nút tìm kiếm-->
+        <button id="btt_AL_Search" class="btn" onclick="fn_Alarm_By_Time();"></i> Tìm kiếm</button>
+        <button class="btn1" onclick="exportAlarmByTime();">Xuất Excel</button>
+        <script>
+            function exportAlarmByTime() {
+                const startTime = document.getElementById('dtpk_AL_Search_Start').value;
+                const endTime = document.getElementById('dtpk_AL_Search_End').value;
+        
+                if (!startTime || !endTime) {
+                    alert("Vui lòng chọn thời gian bắt đầu và kết thúc!");
+                    return;
+                }
+        
+                // Chuyển đổi thời gian về đúng định dạng ISO 8601
+                const startTimeISO = new Date(startTime).toISOString();
+                const endTimeISO = new Date(endTime).toISOString();
+                
+                // Điều chỉnh thời gian về đúng định dạng UTC (ISO 8601)
+                window.location.href = `/exportAlarmByTime?startTime=${startTimeISO}&endTime=${endTimeISO}`;
+            }
+
+           
+        </script>
+         <h1 id="alarmm1">MÀN HÌNH HIỂN THỊ CẢNH BÁO</h1>
+
+
+                <!-- //////////////Code cho màn hình Active///////////// -->
+         <div id = "Screen_Active">
+            <!-- //////////////Hình nền////////////// -->
+         
+
+
+          <!--Table Cảnh báo Active-->
+          <div id = "div_table_Active">
+           <table id="table_Active" >
+               <thead>
+               <tr>
+                   <th>Thời gian</th>
+                   <th>ID </th>
+                   <th>Trạng thái</th>
+                   <th>Nội dung </th>
+               </tr>
+               </thead>
+           </table>
+       </div>
+      
+       <!--Date time piker-->
+       <label id="lb_AL_Search_Start1">Từ:</label>
+       <input id="dtpk_AL_Search_Start1" type="datetime-local">
+       <label id="lb_AL_Search_End1">Đến:</label>
+       <input id="dtpk_AL_Search_End1" type="datetime-local">
+       <!--Nút tìm kiếm
+       <button id="btt_AL_Search1" class="btn" onclick="fn_Active_By_Time();"></i> TÌM KIẾM</button>-->
+       
+
+       <!--Nút tìm kiếm-->
+       <button id="btt_AL_Search1" class="btn3" onclick="fn_Active_By_Time();"></i> Tìm kiếm</button>
+       <button class="btn2" onclick="exportActiveByTime();">Xuất Excel</button>
+       <script>
+           function exportActiveByTime() {
+               const startTime = document.getElementById('dtpk_AL_Search_Start1').value;
+               const endTime = document.getElementById('dtpk_AL_Search_End1').value;
+       
+               if (!startTime || !endTime) {
+                   alert("Vui lòng chọn thời gian bắt đầu và kết thúc!");
+                   return;
+               }
+       
+               // Chuyển đổi thời gian về đúng định dạng ISO 8601
+               const startTimeISO = new Date(startTime).toISOString();
+               const endTimeISO = new Date(endTime).toISOString();
+               
+               // Điều chỉnh thời gian về đúng định dạng UTC (ISO 8601)
+               window.location.href = `/exportActiveByTime?startTime=${startTimeISO}&endTime=${endTimeISO}`;
+           }
+           
+       </script>
+        <h1 id="activee1">MÀN HÌNH HIỂN THỊ TRẠNG THÁI HOẠT ĐỘNG</h1>
+               </div>
+                </body>
+        </html>

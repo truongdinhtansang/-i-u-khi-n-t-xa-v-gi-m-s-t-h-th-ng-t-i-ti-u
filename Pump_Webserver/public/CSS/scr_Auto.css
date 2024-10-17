@@ -1,0 +1,529 @@
+/*Màn hình Home*/
+#Screen_Auto {
+    position: absolute;
+    left: 215px; top: 120px;
+    width: 1100px; height: 630px;
+    background: linear-gradient(180deg, rgb(184, 177, 166) 0%, rgb(146, 137, 128) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+
+
+
+/*Bơm 1*/
+#sym_scrAuto_Bom1 {
+    position: absolute;
+    left: 130px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 2*/
+#sym_scrAuto_Bom2 {
+    position: absolute;
+    left: 300px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 3*/
+#sym_scrAuto_Bom3 {
+    position: absolute;
+    left: 470px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 4*/
+#sym_scrAuto_Bom4 {
+    position: absolute;
+    left: 640px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 5*/
+#sym_scrAuto_Bom5 {
+    position: absolute;
+    left: 810px; top: 127px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 6*/
+#sym_scrAuto_Bom6 {
+    position: absolute;
+    left: 130px; top: 387px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 7*/
+#sym_scrAuto_Bom7 {
+    position: absolute;
+    left: 300px; top: 387px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 8*/
+#sym_scrAuto_Bom8 {
+    position: absolute;
+    left: 470px; top: 387px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 9*/
+#sym_scrAuto_Bom9 {
+    position: absolute;
+    left: 640px; top: 387px;
+    width: 121px; height: 66px;
+    
+}
+/*Bơm 10*/
+#sym_scrAuto_Bom10 {
+    position: absolute;
+    left: 810px; top: 387px;
+    width: 121px; height: 66px;
+    
+}
+
+/*Đèn báo 1*/
+#sym_scrAuto_Denbao1 {
+    position: absolute;
+    left: 222px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 2*/
+#sym_scrAuto_Denbao2 {
+    position: absolute;
+    left: 385px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 3*/
+#sym_scrAuto_Denbao3 {
+    position: absolute;
+    left: 562px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 4*/
+#sym_scrAuto_Denbao4 {
+    position: absolute;
+    left: 726px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 5*/
+#sym_scrAuto_Denbao5 {
+    position: absolute;
+    left: 900px; top: 90px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 6*/
+#sym_scrAuto_Denbao6 {
+    position: absolute;
+    left: 222px; top: 350px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 7*/
+#sym_scrAuto_Denbao7 {
+    position: absolute;
+    left: 385px; top:350px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 8*/
+#sym_scrAuto_Denbao8 {
+    position: absolute;
+    left: 562px; top: 350px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 9*/
+#sym_scrAuto_Denbao9 {
+    position: absolute;
+    left: 726px; top: 350px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo 10*/
+#sym_scrAuto_Denbao10 {
+    position: absolute;
+    left: 900px; top: 350px;
+    width: 30px; height: 30px;
+    
+}
+/*Đèn báo mức nước*/
+#sym_scrAuto_Denbaonuoc {
+    position: absolute;
+    left: 1000px; top: 20px;
+    width: 70px; height: 70px;
+    
+}
+/* Nút nhấn - Styles for buttons */
+#btt_StartAuto,#btt_StopALLauto,#btt_Auto_Save,#btt_Auto_Edit,#tbx_act_luongnuoc1,#tbx_act_luongnuoc2,
+#tbx_act_luongnuoc3,#tbx_act_luongnuoc4,#tbx_act_luongnuoc5,#tbx_act_luongnuoc6,#tbx_act_luongnuoc7,
+#tbx_act_luongnuoc8,#tbx_act_luongnuoc9,#tbx_act_luongnuoc10,#tbx_act_tongluongnuoc,#tbx_Auto_Real,#btt_ResetAuto{
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 82px;
+    height: 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/*Code css cho nút nhấn start auto*/
+#btt_StartAuto {
+    border: none;
+    background-color: rgb(0, 255, 76);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 92px; height: 34px;
+    left: 603px; top: 284px;
+}
+/*Code css cho nút nhấn stop all*/
+#btt_StopALLauto {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 92px; height: 34px;
+    left: 726px; top: 284px;
+}
+/*Code css cho nút nhấn reset*/
+#btt_ResetAuto {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 92px; height: 34px;
+    left: 849px; top: 284px;
+}
+
+
+/*IO Fleld lượng nước các bơm */
+#tbx_act_luongnuoc1 {
+    position: absolute;
+    left: 130px; top: 217px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc2 {
+    position: absolute;
+    left: 300px; top: 217px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc3 {
+    position: absolute;
+    left: 470px; top: 217px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc4 {
+    position: absolute;
+    left: 640px; top: 217px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc5 {
+    position: absolute;
+    left: 810px; top: 217px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc6 {
+    position: absolute;
+    left: 130px; top: 472px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc7 {
+    position: absolute;
+    left: 300px; top: 472px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc8 {
+    position: absolute;
+    left: 470px; top: 472px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc9 {
+    position: absolute;
+    left: 640px; top: 472px;
+    width: 81px; height: 27px;
+    
+}
+#tbx_act_luongnuoc10 {
+    position: absolute;
+    left: 810px; top: 472px;
+    width: 81px; height: 27px;
+    
+}
+
+#tbx_act_tongluongnuoc {
+    position: absolute;
+    left: 129px; top: 281px;
+    width: 102px; height: 34px;
+    
+}
+
+
+
+/*Nút nhấn LƯU*/
+#btt_Auto_Save {
+    border: none;
+    background-color: rgb(9, 243, 106);
+    color: rgb(245, 245, 245);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 50px; height: 20px;
+    left: 20px; top: 30px;
+}
+/*Nút nhấn SỬA*/
+#btt_Auto_Edit {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 50px; height: 20px;
+    left: 20px; top: 30px;
+}
+
+/*mức nước yêu cầu*/
+#tbx_Auto_Real {
+    position: absolute;
+    left: 385px; top: 281px;
+    width: 102px; height: 34px;
+    
+}
+
+
+/* CHỮ Bơm    */
+
+#bom1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 110px;
+    font-size: 1em;
+}
+#bom2 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 110px;
+    font-size: 1em;
+}
+#bom3 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 110px;
+    font-size: 1em;
+}
+#bom4 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 110px;
+    font-size: 1em;
+}
+#bom5 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 110px;
+    font-size: 1em;
+}
+#bom6 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 370px;
+    font-size: 1em;
+}
+#bom7 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 370px;
+    font-size: 1em;
+}
+#bom8 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 370px;
+    font-size: 1em;
+}
+#bom9 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 370px;
+    font-size: 1em;
+}
+#bom10 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 370px;
+    font-size: 1em;
+}
+
+/* CHỮ m3    */
+
+#bomm1 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 221px; top: 203px;
+    font-size: 1.5em;
+}
+#bomm2 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 391px; top: 203px;
+    font-size: 1.5em;
+}
+#bomm3 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 561px; top: 203px;
+    font-size: 1.5em;
+}
+#bomm4 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 731px; top: 203px;
+    font-size: 1.5em;
+}
+#bomm5 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 901px; top: 203px;
+    font-size: 1.5em;
+}
+#bomm6 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 221px; top: 458px;
+    font-size: 1.5em;
+}
+#bomm7 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 391px; top: 458px;
+    font-size: 1.5em;
+}
+#bomm8 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 561px; top: 458px;
+    font-size: 1.5em;
+}
+#bomm9 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 731px; top: 458px;
+    font-size: 1.5em;
+}
+#bomm10 {
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 901px; top: 458px;
+    font-size: 1.5em;
+}
+
+#bomm11 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 100px; top: 311px;
+    font-size: 1em;
+}
+#bomm12 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 350px; top: 311px;
+    font-size: 1em;
+}
+
+#bomm13 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 320px; 
+    top: 2px;
+    font-size: 2em;
+    animation: bounce 1s infinite alternate, colorChange 3s infinite alternate;
+    font-weight: bold; /* Đậm chữ để dễ chú ý hơn */
+}
+
+/* Hiệu ứng thay đổi màu sắc */
+@keyframes colorChange {
+    0% {
+        color: rgb(32, 129, 13); /* Màu xanh lá */
+    }
+    50% {
+        color: rgb(255, 0, 0); /* Màu đỏ */
+    }
+    100% {
+        color: rgb(7, 10, 235); /* Màu xanh dương */
+    }
+}

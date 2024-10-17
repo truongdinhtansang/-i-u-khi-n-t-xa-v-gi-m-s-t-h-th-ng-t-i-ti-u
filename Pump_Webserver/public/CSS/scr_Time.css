@@ -1,0 +1,202 @@
+
+/*Màn hình Home*/
+#Screen_Time {
+    position: absolute;
+    left: 215px; top: 120px;
+    width: 1100px; height: 630px;
+    background: linear-gradient(180deg, rgb(184, 177, 166) 0%, rgb(146, 137, 128) 100%);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+
+/*IO Fleld thời gian các bơm */
+#tbx_act_thoigian1 {
+    position: absolute;
+    left: 138px; top: 150px;
+    
+    
+}
+
+#tbx_act_thoigian2 {
+    position: absolute;
+    left: 308px; top: 150px;
+    
+    
+}
+
+#tbx_act_thoigian3 {
+    position: absolute;
+    left: 478px; top: 150px;
+   
+    
+}
+
+#tbx_act_thoigian4 {
+    position: absolute;
+    left: 648px; top: 150px;
+    
+    
+}
+
+#tbx_act_thoigian5 {
+    position: absolute;
+    left: 818px; top: 150px;
+  
+    
+}
+#tbx_act_thoigian6 {
+    position: absolute;
+    left: 138px; top: 350px;
+  
+    
+}
+#tbx_act_thoigian7 {
+    position: absolute;
+    left: 308px; top: 350px;
+   
+    
+}
+#tbx_act_thoigian8 {
+    position: absolute;
+    left: 478px; top: 350px;
+ 
+    
+}
+#tbx_act_thoigian9 {
+    position: absolute;
+    left: 648px; top: 350px;
+    
+    
+}
+#tbx_act_thoigian10 {
+    position: absolute;
+    left: 818px; top: 350px;
+   
+    
+}
+
+/* Nút nhấn - Styles for buttons */
+#tbx_act_thoigian1,#tbx_act_thoigian2,#tbx_act_thoigian3,#tbx_act_thoigian4,#tbx_act_thoigian5,
+#tbx_act_thoigian6,#tbx_act_thoigian7,#tbx_act_thoigian8,#tbx_act_thoigian9,#tbx_act_thoigian10{
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 130px;
+    height: 50px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* CHỮ Time    */
+
+#time1 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 200px;
+    font-size: 1em;
+}
+#time2 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 200px;
+    font-size: 1em;
+}
+#time3 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 200px;
+    font-size: 1em;
+}
+#time4 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 200px;
+    font-size: 1em;
+}
+#time5 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 200px;
+    font-size: 1em;
+}
+#time6 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 130px; top: 400px;
+    font-size: 1em;
+}
+#time7 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; top: 400px;
+    font-size: 1em;
+}
+#time8 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 470px; top: 400px;
+    font-size: 1em;
+}
+#time9 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 640px; top: 400px;
+    font-size: 1em;
+}
+#time10 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 810px; top: 400px;
+    font-size: 1em;
+}
+
+#time11 {
+    text-transform: uppercase;
+    position: absolute;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    left: 300px; 
+    top: 2px;
+    font-size: 2em;
+    animation: bounce 1s infinite alternate, colorChange 3s infinite alternate;
+    font-weight: bold; /* Đậm chữ để dễ chú ý hơn */
+}
+
+/* Hiệu ứng thay đổi màu sắc */
+@keyframes colorChange {
+    0% {
+        color: rgb(32, 129, 13); /* Màu xanh lá */
+    }
+    50% {
+        color: rgb(255, 0, 0); /* Màu đỏ */
+    }
+    100% {
+        color: rgb(7, 10, 235); /* Màu xanh dương */
+    }
+}
